@@ -27,12 +27,12 @@ fs.readdir("./commands/", (err, files) => {
 
 })
 
+bot.user.setActivity('Anime', {type: 'WATCHING'})
+
 bot.on('ready', async () => {
 
     console.log(`${bot.user.username} is ready!`);
 
-    bot.user.setActivity('Anime', {type: 'WATCHING'})
-    
 });
 
 bot.on('message', message => {
