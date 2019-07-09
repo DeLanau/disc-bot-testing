@@ -45,25 +45,6 @@ bot.on("message", async message => {
     
     let commandfile = bot.commands.get(cmd.slice(prefix.length));
     if(commandfile) commandfile.run(bot,message,args);
-
-    if (message.content === `${perfix}test`) {
-    	message.channel.send('This is test!');
-      }
-
-      if(message.console === `${prefix}info`){
-
-        let avatar = bot.user.displayAvatarURL;
-
-        let botembed = new Discord.RichEmbed()
-        .setDescription("Информация о Боте")
-        .setColor("#00ff00")
-        .setTumbnail(avatar)
-        .addField("Имя Бота", bot.user.username)
-        .addField("Создатель/разработчик", "Happik21 - можете закидать формами")
-        .addField("Функционал", "В разработке");
-
-        return message.channel.send(botembed);
-      }
       
 });
 
