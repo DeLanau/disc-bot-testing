@@ -19,9 +19,9 @@ fs.readdir("./commands/", (err, files) => {
 
     jsfile.forEach((f, i) => {
 
-        let props = require('./commands/${f}');
+        let props = require(`./commands/${f}`);
 
-        console.log('${f} loaded!');
+        console.log(`${f} loaded!`);
         bot.commands.set(props.help.name, props);
     });
 
@@ -29,7 +29,7 @@ fs.readdir("./commands/", (err, files) => {
 
 bot.on('ready', async () => {
 
-    console.log('${bot.user.username} is ready!');
+    console.log(`${bot.user.username} is ready!`);
 
     bot.user.setActivity("Anime", {type: "WATCHING"})
     
@@ -39,11 +39,11 @@ bot.on('message', message => {
 
     let prefix = botconfig.prefix;
 
-    if (message.content === '${perfix}test') {
+    if (message.content === `${perfix}test`) {
     	message.channel.send('This is test!');
       }
 
-      if(message.console === '${prefix}info'){
+      if(message.console === `${prefix}info`){
 
         let avatar = bot.user.displayAvatarURL;
 
@@ -58,7 +58,7 @@ bot.on('message', message => {
         return message.channel.send(botembed);
       }
 
-      if(message.content === '${prefix}serverinfo'){
+      if(message.content === `${prefix}serverinfo`){
 
         let server_avatar = message.guild.displayAvatarURL;
 
