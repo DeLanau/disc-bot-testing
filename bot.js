@@ -57,7 +57,8 @@ bot.on("message", async message => {
         .setDescription("Server info")
         .setTumbnail(server_avatar)
         .addField("Server name", message.guild.name)
-        .addField("Total users", message.guild.memerCount)).catch((e) => { console.log(e); });    
+        .addField("Total users", message.guild.memerCount)
+        .setTimestamp()).catch((e) => { console.log(e); });    
     }
       
 });
