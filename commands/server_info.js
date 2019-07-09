@@ -5,11 +5,11 @@ module.exports.run = async (bot, message, args) => {
     let server_avatar = message.guild.displayAvatarURL;
 
     let serverembed = new Discord.RichEmbed()
-    .setDescription("Информация о Сервере")
+    .setDescription("Server info")
     .setColor("#ff0066")
     .setTumbnail(server_avatar)
-    .addField("Название сервера", message.guild.name)
-    .addField("Всего пользователей", message.guild.memerCount);
+    .addField("Server name", message.guild.name)
+    .addField("Total users", message.guild.memerCount);
 
     return message.channel.send(serverembed);
 }
