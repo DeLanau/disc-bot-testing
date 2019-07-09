@@ -5,7 +5,7 @@ module.exports.run = async (bot, message, args) => {
     if(!message.member.id === "266556791440146432") return message.channel.send("Ты не достоен")
 
     let argsresult
-    let mChannel = message.mentions.channel.first();
+    let mChannel = message.mentions.channels.first();
 
     message.delet()
     if(mChannel){
