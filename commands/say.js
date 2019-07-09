@@ -7,7 +7,7 @@ module.exports.run = async (bot, message, args) => {
     let argsresult
     let mChannel = message.mentions.channels.first();
 
-    message.delet()
+    message.delete()
     if(mChannel){
         argsresult = args.slice(1).join(" ")
         mChannel.send(argsresult)
