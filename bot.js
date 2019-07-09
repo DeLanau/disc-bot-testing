@@ -35,12 +35,5 @@ if(mChannel){
 
 }
 
-module.exports.config = {
-    name: "say",
-    description: "sends message",
-    usage: "#say",
-    aliases: ["#s", "#msg"]
-}
-
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN);
