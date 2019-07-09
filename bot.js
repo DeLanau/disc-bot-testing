@@ -35,7 +35,9 @@ bot.on('ready', async () => {
     bot.user.setGame('Anime')
 });
 
-bot.on('message', message => {
+bot.on('message', async message => {
+
+    if(message.author.bot) return;
 
     let prefix = botconfig.prefix;
     let msgArray = message.content.split(" ");
@@ -43,7 +45,7 @@ bot.on('message', message => {
     
     let commandfile = bot.commands.get(cmd.slice(prefix.length));
     if(commandfile) commandfile.run(bot,message,args);
-
+    
     if (message.content === `${perfix}test`) {
     	message.channel.send('This is test!');
       }
