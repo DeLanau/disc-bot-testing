@@ -28,14 +28,14 @@ fs.readdir("./commands/", (err, files) => {
 })
 
 
-bot.on('ready', async () => {
+bot.on("ready", async () => {
 
     console.log(`${bot.user.username} is ready!`);
 
-    bot.user.setGame('Anime')
+    bot.user.setActivity("Anime", {type: "WATCHING"});
 });
 
-bot.on('message', async message => {
+bot.on("message", async message => {
 
     if(message.author.bot) return;
 
@@ -45,7 +45,7 @@ bot.on('message', async message => {
     
     let commandfile = bot.commands.get(cmd.slice(prefix.length));
     if(commandfile) commandfile.run(bot,message,args);
-    
+
     if (message.content === `${perfix}test`) {
     	message.channel.send('This is test!');
       }
