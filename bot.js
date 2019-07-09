@@ -47,6 +47,8 @@ bot.on("message", async message => {
     let commandfile = bot.commands.get(cmd.slice(prefix.length));
     if(commandfile) commandfile.run(bot,message,args);
 
+    let server_avatar = message.guild.displayAvatarURL;
+
     if(message.content === "test"){
         message.channel.send(new Discord.RichEmbed()
         .setTitle("Title")
