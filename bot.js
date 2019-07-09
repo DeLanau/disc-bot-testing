@@ -1,39 +1,78 @@
 const Discord = require('discord.js');
-const client = new Discord.Client();
+const bot = new Discord.Client();
+const botconfig = require("./botconfig.json");
 
-client.on('ready', () => {
+const fs = require("fs");
 
-    console.log('I am ready!');
+bot.commands = new Discord.Collection();
 
-    client.user.setActivity("Anime", {type: "WATCHING"})
+fs.readdir("./commands/", (err, file) => {
+    if(err) console.log(err);
+
+    let jsfile = files.filter(f => f.split(".").pop() === "js")
+    if(jsfile.length <= 0){
+
+        console.log("Couldn't find commands!");
+
+        return;
+    }
+
+    jsfile.forEach((f, i) => {
+
+        let props = require('./commands/${f}');
+
+        console.log('${f} loaded!');
+        bot.commands.set(props.help.name, props);
+    });
+
+})
+
+bot.on('ready', async () => {
+
+    console.log('${bot.user.username} is ready!');
+
+    bot.user.setActivity("Anime", {type: "WATCHING"})
     
 });
 
-client.on('message', message => {
+bot.on('message', message => {
 
-    if (message.content === 'test') {
+    let prefix = botconfig.prefix;
+
+    if (message.content === '${perfix}test') {
     	message.channel.send('This is test!');
+      }
+
+      if(message.console === '${prefix}info'){
+
+        let avatar = bot.user.displayAvatarURL;
+
+        let botembed = new Discord.RichEmbed()
+        .setDescription("Информация о Боте")
+        .setColor("#00ff00")
+        .setTumbnail(avatar)
+        .addField("Имя Бота", bot.user.username)
+        .addField("Создатель/разработчик", "Happik21 - можете закидать формами")
+        .addField("Функционал", "В разработке");
+
+        return message.channel.send(botembed);
+      }
+
+      if(message.content === '${prefix}serverinfo'){
+
+        let server_avatar = message.guild.displayAvatarURL;
+
+       let serverembed = new Discord.RichEmbed()
+       .setDescription("Информация о Сервере")
+       .setColor("#ff0066")
+       .setTumbnail(server_avatar)
+       .addField("Название сервера", message.guild.name)
+       .addField("Всего пользователей", message.guild.memerCount);
+
+       return message.channel.send(serverembed);
       }
       
 });
 
-client.on('message', message, args => {
-
-if(!message.member.hasPermission(["MANAGE_MESSAGEs", "ADMINISTRATOR"])) return message.channel.send("You cannot use this command!")
-
-let argsresult;
-let mChannel = message.mentions.channel.first();
-
-message.delete();
-if(mChannel){
-    argsresult = args.slice(1).join(" ")
-    mChannel.send(argsresult)
-}else {
-    argsresult = args.join(" ")
-    message.channel.send(argsresult)
-}
-
-});
-
 // THIS  MUST  BE  THIS  WAY
-client.login(process.env.BOT_TOKEN);
+bot.login(process.env.BOT_TOKEN);
