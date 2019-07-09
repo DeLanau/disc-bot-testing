@@ -11,7 +11,7 @@ module.exports.run = async (bot, message, args) => {
     .addField("Server name", message.guild.name)
     .addField("Total users", message.guild.memerCount);
 
-    return message.channel.send(serverembed);
+    message.channel.send(serverembed);
 }
 
 module.exports.help = {
