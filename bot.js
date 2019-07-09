@@ -17,7 +17,7 @@ client.on('message', message => {
       
 });
 
-module.exports.run = async (bot, message, args) => {
+client.on('message', message, args => {
 
 if(!message.member.hasPermission(["MANAGE_MESSAGEs", "ADMINISTRATOR"])) return message.channel.send("You cannot use this command!")
 
@@ -33,7 +33,7 @@ if(mChannel){
     message.channel.send(argsresult)
 }
 
-}
+});
 
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN);
