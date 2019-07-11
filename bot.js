@@ -60,7 +60,17 @@ bot.on("message", async message => {
         .addField("Total users", message.guild.memerCount)
         .setTimestamp()).catch((e) => { console.log(e); });    
     }
-      
+     
+});
+
+bot.on('messageReactionAdd', (emoji, user, message) => {
+
+if(message.id === '' && emoji.name === 'master')  {
+
+    user.addRole(message.guild.roles.id('579773324163547136'))
+
+} 
+
 });
 
 // THIS  MUST  BE  THIS  WAY
