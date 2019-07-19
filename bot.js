@@ -61,15 +61,12 @@ bot.on("message", async message => {
         .setTimestamp()).catch((e) => { console.log(e); });    
     }
      
-});
+    if(message.content === "bot" && message.member.id === "266556791440146432"){
 
-bot.on('messageReactionAdd', (emoji, user, message) => {
+        var role = message.guild.roles.find(role => role.id === "579774136906285098");
+        message.member.addRole(role);
 
-if(message.id === '' && emoji.name === 'master')  {
-
-    user.addRole(message.guild.roles.id('579773324163547136'))
-
-} 
+    }
 
 });
 
