@@ -63,7 +63,7 @@ bot.on("message", async message => {
      
     if(message.content === "bot" && message.member.id === "266556791440146432"){
 
-        var role = message.guild.roles.find(role => role.id === "579774136906285098");
+        var role = message.guild.roles.find(role => role.name === "Владеющие разумом");
         message.member.addRole(role);
 
     }
