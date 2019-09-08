@@ -77,7 +77,7 @@ bot.on('voiceStateUpdate', (oldMember, newMember) => {
   
     if(oldUserChannel === undefined && newUserChannel !== undefined) {
   
-        if(newMember.user.id == '266556791440146432'){
+        if(newMember.user.id == '342586243600875521'){
 
             bot.channels.get(`540590997143552013`).send('<@&620323100084535316>').then(msg => {
                 msg.delete(10000)});
