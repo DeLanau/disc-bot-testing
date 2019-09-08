@@ -79,7 +79,7 @@ bot.on('voiceStateUpdate', (oldMember, newMember) => {
   
         if(newMember.user.id == '266556791440146432'){
 
-            client.channels.get(`540590997143552013`).send(`Test`);
+            bot.channels.get(`540590997143552013`).send(`Test`);
   
         }
     } else if(newUserChannel === undefined){
