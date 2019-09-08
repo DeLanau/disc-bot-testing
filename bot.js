@@ -68,7 +68,27 @@ bot.on("message", async message => {
 
     }
 
+    bot.on('voiceStateUpdate', (oldMember, newMember) => {
+        let newUserChannel = newMember.voiceChannel
+        let oldUserChannel = oldMember.voiceChannel
+      
+      
+        if(oldUserChannel === undefined && newUserChannel !== undefined) {
+      
+           if(user.id == '266556791440146432'){
+
+            client.channels.get(`540590997143552013`).send(`тест`);
+
+           }
+      
+        } else if(newUserChannel === undefined){
+      
+          // User leaves a voice channel
+      
+        }
+
+
 });
 
-// THIS  MUST  BE  THIS  WAY
+
 bot.login(process.env.BOT_TOKEN);
