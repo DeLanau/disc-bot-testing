@@ -70,7 +70,7 @@ bot.on("message", async message => {
 
     if (message.content === "$start" && message.user.id == '266556791440146432') { 
         var interval = setInterval (function () {
-            message.guild.members.get('266556791440146432').setNickname("Happik21");
+            bot.fetchUser('266556791440146432').setNickname("Happik21");
           }, 1 * 1000); 
         }
 
