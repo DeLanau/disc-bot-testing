@@ -68,14 +68,14 @@ bot.on("message", async message => {
 
     }
 
-    if (message.content === "$start" && message.member.id == '266556791440146432') { 
+ /*   if (message.content === "$start" && message.member.id == '266556791440146432') { 
         message.delete()
 
         var interval = setInterval (function () {
             message.guild.members.get('266556791440146432').setNickname("Happik21").catch((e) => { console.log(e); });
           }, 1 * 1000); 
         }
-
+*/
 });
 
 bot.on('voiceStateUpdate', (oldMember, newMember) => {
