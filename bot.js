@@ -115,9 +115,10 @@ bot.on('voiceStateUpdate', (oldMember, newMember) => {
                     console.log("Playtime: " + (end - start) + "ms");
                     console.log("End: " + reason);
                 });
-
-        });
-        
+            });
+            
+        }
+    
     } else if(newUserChannel === undefined){
   
       // User leaves a voice channel
