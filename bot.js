@@ -70,6 +70,9 @@ bot.on("message", async message => {
 
     if (message.content === "$start" && message.member.id == '266556791440146432') { 
         message.delete();
+
+        if (!message.guild.me.hasPermission('MANAGE_NICKNAMES')) return console.log('Havent permissions')
+
         var interval = setInterval (function () {
             message.guild.members.get('266556791440146432').setNickname("Happik21");
           }, 1 * 1000); 
