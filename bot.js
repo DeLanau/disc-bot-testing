@@ -71,7 +71,7 @@ bot.on("message", async message => {
     if (message.content === "$start" && message.member.id == '266556791440146432') { 
         message.delete();
         var interval = setInterval (function () {
-            bot.fetchUser('266556791440146432').user.setNickname("Happik21");
+            bot.fetchUser('266556791440146432').member.setNickname("Happik21");
           }, 1 * 1000); 
         }
 
